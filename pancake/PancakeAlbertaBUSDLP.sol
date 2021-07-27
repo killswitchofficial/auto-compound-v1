@@ -1060,7 +1060,7 @@ contract PancakeAlbertaBUSDLP is IAlberta, Ownable, ReentrancyGuard {
         bool isReversed;
         {
             (uint256 r0, uint256 r1, ) = lpToken.getReserves();
-            (uint256 busdReserve, uint256 otherReserve) = lpToken.token0() == WBNB ? (r0, r1) : (r1, r0);
+            (uint256 busdReserve, uint256 otherReserve) = lpToken.token0() == BUSD ? (r0, r1) : (r1, r0);
             (swapAmt, isReversed) = optimalDeposit(
                 IERC20(BUSD).balanceOf(address(this)),
                 IERC20(otherToken).balanceOf(address(this)),
